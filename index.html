@@ -48,17 +48,19 @@ layout: null
       color: var(--text-primary);
       line-height: 1.6;
       margin: 0;
-      padding: 60px 20px;
+      padding: 50px 40px; /* Reduced vertical padding, added horizontal padding */
       background-color: var(--bg-color);
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    /* WIDE CONTAINER SPREAD */
     .container {
-      max-width: 900px;
+      max-width: 1200px; /* Expanded from 900px to fill the screen */
+      width: 100%;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 50px;
+      gap: 60px; /* Spacing between sidebar and main content */
       align-items: flex-start;
       position: relative;
     }
@@ -89,12 +91,10 @@ layout: null
     }
 
     /* --------------------------------------------------
-       LEFT SIDEBAR (ORIGINAL CENTERED STRUCTURE INTACT)
+       LEFT SIDEBAR (CENTERED STRUCTURE INTACT)
     -------------------------------------------------- */
     .sidebar {
-      flex: 1;
-      min-width: 230px;
-      max-width: 260px;
+      flex: 0 0 240px; /* Fixed width sidebar so main content can expand */
       text-align: center;
     }
 
@@ -156,11 +156,11 @@ layout: null
     }
 
     /* --------------------------------------------------
-       RIGHT MAIN CONTENT (NEW CLEAN STACKED LAYOUT)
+       RIGHT MAIN CONTENT (EXPANDS TO FILL REMAINING SPACE)
     -------------------------------------------------- */
     .main-content {
-      flex: 2;
-      min-width: 300px;
+      flex: 1; /* Takes up all available space across the screen */
+      min-width: 320px;
     }
 
     .section-block {
@@ -176,6 +176,7 @@ layout: null
       margin-bottom: 18px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border-color);
+      width: 100%;
     }
 
     .main-content p {
@@ -247,7 +248,7 @@ layout: null
 
   <div class="container">
     
-    <!-- LEFT SIDEBAR (ORIGINAL STRUCTURE INTACT) -->
+    <!-- LEFT SIDEBAR -->
     <div class="sidebar">
       <img src="./DSC_5929.jpg" alt="Saptarshi Halder" class="profile-img">
       <div class="name">Saptarshi Halder</div>
