@@ -22,7 +22,7 @@ layout: null
       --text-muted: #777777;
       --accent-color: #2b6cb0;
       --accent-hover: #1a4971;
-      --border-color: #e2e8f0; /* Section line color for light mode */
+      --border-color: #e2e8f0;
       --shadow-color: rgba(0, 0, 0, 0.12);
       --toggle-bg: #f0f0f0;
     }
@@ -34,7 +34,7 @@ layout: null
       --text-muted: #999999;
       --accent-color: #63b3ed;
       --accent-hover: #90cdf4;
-      --border-color: #2d3748; /* Section line color for dark mode */
+      --border-color: #2d3748;
       --shadow-color: rgba(0, 0, 0, 0.6);
       --toggle-bg: #2d2d2d;
     }
@@ -88,7 +88,9 @@ layout: null
       transform: scale(1.08);
     }
 
-    /* Left Sidebar */
+    /* --------------------------------------------------
+       LEFT SIDEBAR (ORIGINAL CENTERED STRUCTURE INTACT)
+    -------------------------------------------------- */
     .sidebar {
       flex: 1;
       min-width: 230px;
@@ -147,26 +149,31 @@ layout: null
       color: var(--accent-hover);
     }
 
-    /* Horizontal Line Divider for Sidebar */
     .sidebar-divider {
       border: 0;
       border-top: 1px solid var(--border-color);
       margin: 25px 0 0 0;
     }
 
-    /* Right Main Content */
+    /* --------------------------------------------------
+       RIGHT MAIN CONTENT (NEW CLEAN STACKED LAYOUT)
+    -------------------------------------------------- */
     .main-content {
       flex: 2;
       min-width: 300px;
     }
 
-    /* Section Headings with Bottom Border Line */
+    .section-block {
+      margin-bottom: 35px;
+    }
+
+    /* Section Headings with Full-Width Line */
     .main-content h2 {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 500;
       color: var(--text-primary);
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border-color);
     }
@@ -175,6 +182,7 @@ layout: null
       font-size: 15px;
       color: var(--text-secondary);
       margin-bottom: 18px;
+      line-height: 1.6;
     }
 
     .main-content a {
@@ -186,40 +194,7 @@ layout: null
       text-decoration: underline;
     }
 
-    /* Info Grid (Interests & Education) */
-    .info-grid {
-      display: flex;
-      gap: 40px;
-      margin-top: 35px;
-      flex-wrap: wrap;
-    }
-
-    .info-column {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    /* Sub-section Headings with Bottom Border Line */
-    .info-column h3 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 14px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .info-column ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-
-    .info-column li {
-      margin-bottom: 8px;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
+    /* Education Items */
     .education-list {
       display: flex;
       flex-direction: column;
@@ -249,6 +224,18 @@ layout: null
       color: var(--text-muted);
       margin-top: 2px;
     }
+
+    /* Interests List */
+    .simple-list {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .simple-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -260,7 +247,7 @@ layout: null
 
   <div class="container">
     
-    <!-- LEFT SIDEBAR -->
+    <!-- LEFT SIDEBAR (ORIGINAL STRUCTURE INTACT) -->
     <div class="sidebar">
       <img src="./DSC_5929.jpg" alt="Saptarshi Halder" class="profile-img">
       <div class="name">Saptarshi Halder</div>
@@ -279,63 +266,60 @@ layout: null
 
     <!-- RIGHT MAIN CONTENT -->
     <div class="main-content">
-      <h2>About me</h2>
       
-      <p>
-        Hi, I'm Saptarshi, a first-year PhD student in Mathematics at 
-        <strong>The University of Texas at Dallas</strong>, supported by the 
-        <strong>NSM McDermott Admission Fellowship</strong>.
-      </p>
+      <!-- ABOUT SECTION -->
+      <div class="section-block">
+        <h2>About</h2>
+        <p>
+          Hi, I'm Saptarshi, a first-year PhD student in Mathematics at 
+          <strong>The University of Texas at Dallas</strong>, supported by the 
+          <strong>NSM McDermott Admission Fellowship</strong>.
+        </p>
+        <p>
+          I am broadly interested in Geometric analysis and Manifold learning, 
+          specifically Kähler-Ricci flow and nonlinear dimension reduction.
+        </p>
+        <p>
+          My faculty advisors are 
+          <a href="https://personal.utdallas.edu/~ronan.conlon/" target="_blank" rel="noopener noreferrer">Dr. Ronan Conlon</a> 
+          and 
+          <a href="https://wunan3.github.io/" target="_blank" rel="noopener noreferrer">Dr. Nan Wu</a>.
+        </p>
+      </div>
 
-      <p>
-        I am broadly interested in Geometric analysis and Manifold learning, 
-        specifically Kähler-Ricci flow and nonlinear dimension reduction.
-      </p>
-
-      <p>
-        My faculty advisors are 
-        <a href="https://personal.utdallas.edu/~ronan.conlon/" target="_blank" rel="noopener noreferrer">Dr. Ronan Conlon</a> 
-        and 
-        <a href="https://wunan3.github.io/" target="_blank" rel="noopener noreferrer">Dr. Nan Wu</a>.
-      </p>
-
-      <div class="info-grid">
-        
-        <!-- Interests Column -->
-        <div class="info-column">
-          <h3>Interests</h3>
-          <ul>
-            <li>Complex Geometry</li>
-            <li>Differential Geometry</li>
-            <li>Functional Analysis</li>
-            <li>Abstract Algebra</li>
-          </ul>
-        </div>
-
-        <!-- Education Column -->
-        <div class="info-column">
-          <h3>Education</h3>
-          <div class="education-list">
-            
-            <div class="education-item">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <div>
-                <div class="degree">Ph.D. in Mathematics</div>
-                <div class="institution">The University of Texas at Dallas &bull; 2025 – Present</div>
-              </div>
+      <!-- EDUCATION SECTION -->
+      <div class="section-block">
+        <h2>Education</h2>
+        <div class="education-list">
+          
+          <div class="education-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+              <div class="degree">Ph.D. in Mathematics</div>
+              <div class="institution">The University of Texas at Dallas &bull; 2025 – Present</div>
             </div>
-
-            <div class="education-item">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <div>
-                <div class="degree">M.Math (Master of Mathematics)</div>
-                <div class="institution">Indian Statistical Institute, Bangalore &bull; 2023 – 2025</div>
-              </div>
-            </div>
-
           </div>
-        </div>
 
+          <div class="education-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+              <div class="degree">M.Math (Master of Mathematics)</div>
+              <div class="institution">Indian Statistical Institute, Bangalore &bull; 2023 – 2025</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- INTERESTS SECTION -->
+      <div class="section-block">
+        <h2>Interests</h2>
+        <ul class="simple-list">
+          <li>Complex Geometry</li>
+          <li>Differential Geometry</li>
+          <li>Functional Analysis</li>
+          <li>Abstract Algebra</li>
+        </ul>
       </div>
 
     </div>
@@ -347,7 +331,6 @@ layout: null
     const toggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
 
-    // Check localStorage or device color preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -359,7 +342,6 @@ layout: null
       themeIcon.className = 'fa-solid fa-moon';
     }
 
-    // Toggle theme on button click
     toggleBtn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       
