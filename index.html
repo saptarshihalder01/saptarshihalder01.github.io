@@ -12,17 +12,43 @@ layout: null
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    /* --------------------------------------------------
+       CSS COLOR VARIABLES FOR LIGHT AND DARK MODE
+    -------------------------------------------------- */
+    :root {
+      --bg-color: #ffffff;
+      --text-primary: #222222;
+      --text-secondary: #444444;
+      --text-muted: #777777;
+      --accent-color: #2b6cb0;
+      --accent-hover: #1a4971;
+      --shadow-color: rgba(0, 0, 0, 0.12);
+      --toggle-bg: #f0f0f0;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-primary: #e0e0e0;
+      --text-secondary: #cccccc;
+      --text-muted: #999999;
+      --accent-color: #63b3ed;
+      --accent-hover: #90cdf4;
+      --shadow-color: rgba(0, 0, 0, 0.6);
+      --toggle-bg: #2d2d2d;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #333;
+      color: var(--text-primary);
       line-height: 1.6;
       margin: 0;
       padding: 60px 20px;
-      background-color: #fff;
+      background-color: var(--bg-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .container {
@@ -32,6 +58,32 @@ layout: null
       flex-wrap: wrap;
       gap: 50px;
       align-items: flex-start;
+      position: relative;
+    }
+
+    /* Floating Theme Toggle Button */
+    .theme-toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--toggle-bg);
+      color: var(--text-primary);
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.08);
     }
 
     /* Left Sidebar */
@@ -48,26 +100,26 @@ layout: null
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 18px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 12px var(--shadow-color);
     }
 
     .name {
       font-size: 26px;
       font-weight: 600;
-      color: #222;
+      color: var(--text-primary);
       margin-bottom: 6px;
     }
 
     .role {
       font-size: 14px;
-      color: #666;
+      color: var(--text-muted);
       margin-bottom: 8px;
       line-height: 1.4;
     }
 
     .affiliation {
       font-size: 14px;
-      color: #2b6cb0;
+      color: var(--accent-color);
       text-decoration: none;
       display: inline-block;
       margin-bottom: 20px;
@@ -85,12 +137,12 @@ layout: null
     }
 
     .social-icons a {
-      color: #2b6cb0;
+      color: var(--accent-color);
       transition: color 0.2s ease;
     }
 
     .social-icons a:hover {
-      color: #1a4971;
+      color: var(--accent-hover);
     }
 
     /* Right Main Content */
@@ -102,15 +154,24 @@ layout: null
     .main-content h2 {
       font-size: 32px;
       font-weight: 400;
-      color: #222;
+      color: var(--text-primary);
       margin-top: 0;
       margin-bottom: 20px;
     }
 
     .main-content p {
       font-size: 15px;
-      color: #444;
+      color: var(--text-secondary);
       margin-bottom: 18px;
+    }
+
+    .main-content a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .main-content a:hover {
+      text-decoration: underline;
     }
 
     /* Info Grid (Interests & Education) */
@@ -129,7 +190,7 @@ layout: null
     .info-column h3 {
       font-size: 18px;
       font-weight: 600;
-      color: #222;
+      color: var(--text-primary);
       margin-bottom: 14px;
     }
 
@@ -140,8 +201,14 @@ layout: null
 
     .info-column li {
       margin-bottom: 8px;
-      color: #555;
+      color: var(--text-secondary);
       font-size: 14px;
+    }
+
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .education-item {
@@ -152,24 +219,29 @@ layout: null
 
     .education-item i {
       font-size: 16px;
-      color: #333;
+      color: var(--text-primary);
       margin-top: 3px;
     }
 
     .degree {
       font-weight: 600;
       font-size: 14px;
-      color: #333;
+      color: var(--text-primary);
     }
 
     .institution {
       font-size: 13px;
-      color: #777;
+      color: var(--text-muted);
       margin-top: 2px;
     }
   </style>
 </head>
 <body>
+
+  <!-- LIGHT / DARK MODE TOGGLE BUTTON -->
+  <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+    <i class="fa-solid fa-moon" id="theme-icon"></i>
+  </button>
 
   <div class="container">
     
@@ -178,15 +250,14 @@ layout: null
       <img src="./DSC_5929.jpg" alt="Saptarshi Halder" class="profile-img">
       <div class="name">Saptarshi Halder</div>
       <div class="role">Graduate student</div>
-    <a href="https://math.utdallas.edu/" target="_blank" rel="noopener noreferrer" class="affiliation">
+      <a href="https://math.utdallas.edu/" target="_blank" rel="noopener noreferrer" class="affiliation">
         Department of Mathematical Sciences<br>
         The University of Texas at Dallas
       </a>
       <div class="social-icons">
         <a href="mailto:saptarshi.halder@utdallas.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>
-        
         <a href="https://orcid.org/0009-0002-4540-3666" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
-        <a href="https://www.linkedin.com/in/saptarshi-halder-24464827b" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/saptarshi-halder-24464827b" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
       </div>
     </div>
 
@@ -235,7 +306,7 @@ layout: null
               <div>
                 <div class="degree">Ph.D. in Mathematics</div>
                 <div class="institution">The University of Texas at Dallas</div>
-                <div class="institution" style="color: #888;">2025 – Present</div>
+                <div class="institution">2025 – Present</div>
               </div>
             </div>
 
@@ -244,16 +315,51 @@ layout: null
               <div>
                 <div class="degree">M.Math (Master of Mathematics)</div>
                 <div class="institution">Indian Statistical Institute, Bangalore</div>
-                <div class="institution" style="color: #888;">2023 – 2025</div>
+                <div class="institution">2023 – 2025</div>
               </div>
             </div>
 
           </div>
         </div>
 
+      </div>
+
     </div>
 
   </div>
+
+  <!-- SCRIPT FOR LIGHT/DARK MODE TOGGLE -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    // Check localStorage or device color preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.className = 'fa-solid fa-sun';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.className = 'fa-solid fa-moon';
+    }
+
+    // Toggle theme on button click
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeIcon.className = 'fa-solid fa-moon';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.className = 'fa-solid fa-sun';
+      }
+    });
+  </script>
 
 </body>
 </html>
