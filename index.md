@@ -15,7 +15,6 @@ title: Home
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   
-  /* Left Sidebar */
   .sidebar {
     flex: 1;
     min-width: 220px;
@@ -73,7 +72,6 @@ title: Home
     color: #1a4971;
   }
 
-  /* Right Main Content */
   .main-content {
     flex: 2;
     min-width: 300px;
@@ -95,7 +93,6 @@ title: Home
     margin-bottom: 16px;
   }
 
-  /* Interests & Education Columns */
   .info-grid {
     display: flex;
     gap: 40px;
@@ -154,9 +151,8 @@ title: Home
 
 <div class="profile-container">
   
-  <!-- LEFT SIDEBAR -->
   <div class="sidebar">
-    <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
+    <img src="DSC_5929.jpg" alt="Saptarshi Halder" class="profile-img">
     <div class="name">Saptarshi Halder</div>
     <div class="role">Researcher in Mathematics & Geometric Analysis</div>
     <a href="#" class="affiliation">Department of Mathematics</a>
@@ -169,24 +165,17 @@ title: Home
     </div>
   </div>
 
-  <!-- RIGHT MAIN CONTENT -->
   <div class="main-content">
     <h2>About me</h2>
     
     <p>
-      I am a passionate researcher in mathematics, specializing in <strong>Complex Geometry</strong>, 
-      <strong>Differential Geometry</strong>, and <strong>Geometric Analysis</strong>. My primary focus 
-      spans geometric operators, Ricci curvature tensors, Bochner-type identities, and heat kernels on Riemannian manifolds.
-    </p>
-
-    <p>
-      In addition to theoretical research, I am actively engaged in academic writing and undergraduate teaching, 
-      helping students develop intuitive and rigorous mathematical skills.
+      I am a researcher in mathematics specializing in <strong>Complex Geometry</strong>, 
+      <strong>Differential Geometry</strong>, and <strong>Geometric Analysis</strong>. My work focuses on 
+      geometric operators, Ricci curvature tensors, Bochner-type formulas, and heat kernels on Riemannian manifolds.
     </p>
 
     <div class="info-grid">
       
-      <!-- Interests Column -->
       <div class="info-column">
         <h3>Interests</h3>
         <ul>
@@ -197,13 +186,12 @@ title: Home
         </ul>
       </div>
 
-      <!-- Education Column -->
       <div class="info-column">
         <h3>Education</h3>
         <div class="education-item">
           <i class="fa-solid fa-graduation-cap"></i>
           <div>
-            <div class="degree">Ph.D. in Mathematics, 2026</div>
+            <div class="degree">Ph.D. in Mathematics</div>
             <div class="institution">Your University / Institution</div>
           </div>
         </div>
