@@ -48,19 +48,19 @@ layout: null
       color: var(--text-primary);
       line-height: 1.6;
       margin: 0;
-      padding: 50px 40px; /* Reduced vertical padding, added horizontal padding */
+      padding: 50px 40px;
       background-color: var(--bg-color);
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* WIDE CONTAINER SPREAD */
     .container {
-      max-width: 1200px; /* Expanded from 900px to fill the screen */
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 60px; /* Spacing between sidebar and main content */
+      gap: 60px;
       align-items: flex-start;
       position: relative;
     }
@@ -91,10 +91,10 @@ layout: null
     }
 
     /* --------------------------------------------------
-       LEFT SIDEBAR (CENTERED STRUCTURE INTACT)
+       LEFT SIDEBAR
     -------------------------------------------------- */
     .sidebar {
-      flex: 0 0 240px; /* Fixed width sidebar so main content can expand */
+      flex: 0 0 240px;
       text-align: center;
     }
 
@@ -156,10 +156,10 @@ layout: null
     }
 
     /* --------------------------------------------------
-       RIGHT MAIN CONTENT (EXPANDS TO FILL REMAINING SPACE)
+       RIGHT MAIN CONTENT
     -------------------------------------------------- */
     .main-content {
-      flex: 1; /* Takes up all available space across the screen */
+      flex: 1;
       min-width: 320px;
     }
 
@@ -236,6 +236,31 @@ layout: null
       font-size: 14px;
       color: var(--text-secondary);
       margin-bottom: 8px;
+    }
+
+    /* --------------------------------------------------
+       MOBILE RESPONSIVE STYLES
+    -------------------------------------------------- */
+    @media (max-width: 768px) {
+      body {
+        padding: 40px 20px;
+      }
+
+      .container {
+        gap: 35px;
+        justify-content: center;
+      }
+
+      .sidebar {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .main-content {
+        min-width: 0;
+        width: 100%;
+      }
     }
   </style>
 </head>
