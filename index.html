@@ -8,35 +8,35 @@ layout: null
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saptarshi Halder | Academic Homepage</title>
 
-  <!-- FontAwesome Icons -->
+  <!-- FontAwesome Icons for Social Media & Education -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     /* --------------------------------------------------
-       COLOR VARIABLES (LIGHT & DARK MODE)
+       CSS COLOR VARIABLES FOR LIGHT AND DARK MODE
     -------------------------------------------------- */
     :root {
       --bg-color: #ffffff;
       --text-primary: #222222;
       --text-secondary: #444444;
-      --text-muted: #666666;
+      --text-muted: #777777;
       --accent-color: #2b6cb0;
       --accent-hover: #1a4971;
-      --border-color: #e5e5e5;
+      --border-color: #e2e8f0; /* Section line color for light mode */
+      --shadow-color: rgba(0, 0, 0, 0.12);
       --toggle-bg: #f0f0f0;
-      --shadow-color: rgba(0, 0, 0, 0.1);
     }
 
     [data-theme="dark"] {
       --bg-color: #121212;
       --text-primary: #e0e0e0;
       --text-secondary: #cccccc;
-      --text-muted: #a0a0a0;
+      --text-muted: #999999;
       --accent-color: #63b3ed;
       --accent-hover: #90cdf4;
-      --border-color: #2d3748;
+      --border-color: #2d3748; /* Section line color for dark mode */
+      --shadow-color: rgba(0, 0, 0, 0.6);
       --toggle-bg: #2d2d2d;
-      --shadow-color: rgba(0, 0, 0, 0.5);
     }
 
     * {
@@ -44,7 +44,7 @@ layout: null
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text-primary);
       line-height: 1.6;
       margin: 0;
@@ -54,7 +54,7 @@ layout: null
     }
 
     .container {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -63,7 +63,7 @@ layout: null
       position: relative;
     }
 
-    /* Theme Toggle Button */
+    /* Floating Theme Toggle Button */
     .theme-toggle-btn {
       position: fixed;
       top: 20px;
@@ -72,13 +72,13 @@ layout: null
       color: var(--text-primary);
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 18px;
       box-shadow: 0 2px 8px var(--shadow-color);
       transition: all 0.3s ease;
       z-index: 1000;
@@ -88,113 +88,85 @@ layout: null
       transform: scale(1.08);
     }
 
-    /* --------------------------------------------------
-       LEFT SIDEBAR (LEFT-ALIGNED LIKE SCREENSHOT)
-    -------------------------------------------------- */
+    /* Left Sidebar */
     .sidebar {
       flex: 1;
-      min-width: 240px;
+      min-width: 230px;
       max-width: 260px;
-      text-align: left;
+      text-align: center;
     }
 
     .profile-img {
-      width: 170px;
-      height: 170px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 12px var(--shadow-color);
     }
 
     .name {
       font-size: 26px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 6px;
-      line-height: 1.2;
     }
 
     .role {
       font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       line-height: 1.4;
     }
 
     .affiliation {
       font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.4;
-      margin-bottom: 15px;
-    }
-
-    hr.sidebar-divider {
-      border: 0;
-      border-top: 1px solid var(--border-color);
-      margin: 18px 0;
-    }
-
-    .contact-item {
-      font-size: 14px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      word-break: break-word;
-    }
-
-    .contact-item i {
-      width: 16px;
-      text-align: center;
-    }
-
-    /* Stacked Sidebar Links List */
-    .sidebar-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .sidebar-links li a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
       color: var(--accent-color);
       text-decoration: none;
-      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 20px;
     }
 
-    .sidebar-links li a:hover {
+    .affiliation:hover {
       text-decoration: underline;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 22px;
+    }
+
+    .social-icons a {
+      color: var(--accent-color);
+      transition: color 0.2s ease;
+    }
+
+    .social-icons a:hover {
       color: var(--accent-hover);
     }
 
-    .sidebar-links i {
-      width: 16px;
-      text-align: center;
-      font-size: 15px;
-      color: var(--text-secondary);
+    /* Horizontal Line Divider for Sidebar */
+    .sidebar-divider {
+      border: 0;
+      border-top: 1px solid var(--border-color);
+      margin: 25px 0 0 0;
     }
 
-    /* --------------------------------------------------
-       RIGHT MAIN CONTENT AREA
-    -------------------------------------------------- */
+    /* Right Main Content */
     .main-content {
       flex: 2;
       min-width: 300px;
     }
 
-    /* Headings with Full-Width Bottom Line */
+    /* Section Headings with Bottom Border Line */
     .main-content h2 {
-      font-size: 26px;
-      font-weight: 600;
+      font-size: 28px;
+      font-weight: 500;
       color: var(--text-primary);
       margin-top: 0;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border-color);
     }
@@ -203,7 +175,6 @@ layout: null
       font-size: 15px;
       color: var(--text-secondary);
       margin-bottom: 18px;
-      line-height: 1.6;
     }
 
     .main-content a {
@@ -215,33 +186,68 @@ layout: null
       text-decoration: underline;
     }
 
-    /* Content Lists (Education & Interests) */
-    .section-block {
-      margin-bottom: 35px;
+    /* Info Grid (Interests & Education) */
+    .info-grid {
+      display: flex;
+      gap: 40px;
+      margin-top: 35px;
+      flex-wrap: wrap;
     }
 
-    .item-title {
-      font-size: 15px;
+    .info-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    /* Sub-section Headings with Bottom Border Line */
+    .info-column h3 {
+      font-size: 18px;
       font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .info-column ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .info-column li {
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .education-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .education-item i {
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-top: 3px;
+    }
+
+    .degree {
+      font-weight: 600;
+      font-size: 14px;
       color: var(--text-primary);
     }
 
-    .item-subtitle {
-      font-size: 14px;
+    .institution {
+      font-size: 13px;
       color: var(--text-muted);
-      font-style: italic;
-      margin-bottom: 12px;
-    }
-
-    .simple-list {
-      padding-left: 20px;
-      margin: 0 0 18px 0;
-    }
-
-    .simple-list li {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
+      margin-top: 2px;
     }
   </style>
 </head>
@@ -257,89 +263,79 @@ layout: null
     <!-- LEFT SIDEBAR -->
     <div class="sidebar">
       <img src="./DSC_5929.jpg" alt="Saptarshi Halder" class="profile-img">
-      
       <div class="name">Saptarshi Halder</div>
-      <div class="role">Graduate student in Mathematics</div>
-      <div class="affiliation">The University of Texas at Dallas</div>
-      
-      <hr class="sidebar-divider">
-      
-      <div class="contact-item">
-        <i class="fa-solid fa-envelope"></i>
-        <span>saptarshi.halder (at) utdallas.edu</span>
+      <div class="role">Graduate student</div>
+      <a href="https://math.utdallas.edu/" target="_blank" rel="noopener noreferrer" class="affiliation">
+        Department of Mathematical Sciences<br>
+        The University of Texas at Dallas
+      </a>
+      <div class="social-icons">
+        <a href="mailto:saptarshi.halder@utdallas.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://orcid.org/0009-0002-4540-3666" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
+        <a href="https://www.linkedin.com/in/saptarshi-halder-24464827b" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
       </div>
-      
       <hr class="sidebar-divider">
-      
-      <ul class="sidebar-links">
-        <li>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-file-pdf"></i>
-            <span>Curriculum Vitae</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://orcid.org/0009-0002-4540-3666" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-orcid"></i>
-            <span>ORCID</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/saptarshi-halder-24464827b" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-linkedin"></i>
-            <span>LinkedIn</span>
-          </a>
-        </li>
-      </ul>
     </div>
 
     <!-- RIGHT MAIN CONTENT -->
     <div class="main-content">
+      <h2>About me</h2>
       
-      <!-- ABOUT SECTION -->
-      <div class="section-block">
-        <h2>About</h2>
-        <p>
-          Welcome to my webpage. I am a first-year Ph.D. student in Mathematics at 
-          <strong>The University of Texas at Dallas</strong>, supported by the 
-          <strong>NSM McDermott Admission Fellowship</strong>. My faculty advisors are 
-          <a href="https://personal.utdallas.edu/~ronan.conlon/" target="_blank" rel="noopener noreferrer">Dr. Ronan Conlon</a> 
-          and 
-          <a href="https://wunan3.github.io/" target="_blank" rel="noopener noreferrer">Dr. Nan Wu</a>.
-        </p>
-        <p>
-          I received my Masters in Mathematics (M.Math) from the 
-          <strong>Indian Statistical Institute, Bangalore</strong> in 2025.
-        </p>
-        <p>
-          I am broadly interested in geometric analysis and manifold learning, specifically Kähler-Ricci flow and nonlinear dimension reduction.
-        </p>
-      </div>
+      <p>
+        Hi, I'm Saptarshi, a first-year PhD student in Mathematics at 
+        <strong>The University of Texas at Dallas</strong>, supported by the 
+        <strong>NSM McDermott Admission Fellowship</strong>.
+      </p>
 
-      <!-- EDUCATION SECTION -->
-      <div class="section-block">
-        <h2>Education</h2>
+      <p>
+        I am broadly interested in Geometric analysis and Manifold learning, 
+        specifically Kähler-Ricci flow and nonlinear dimension reduction.
+      </p>
+
+      <p>
+        My faculty advisors are 
+        <a href="https://personal.utdallas.edu/~ronan.conlon/" target="_blank" rel="noopener noreferrer">Dr. Ronan Conlon</a> 
+        and 
+        <a href="https://wunan3.github.io/" target="_blank" rel="noopener noreferrer">Dr. Nan Wu</a>.
+      </p>
+
+      <div class="info-grid">
         
-        <div style="margin-bottom: 14px;">
-          <div class="item-title">Ph.D. in Mathematics</div>
-          <div class="item-subtitle">The University of Texas at Dallas &bull; 2025 – Present</div>
+        <!-- Interests Column -->
+        <div class="info-column">
+          <h3>Interests</h3>
+          <ul>
+            <li>Complex Geometry</li>
+            <li>Differential Geometry</li>
+            <li>Functional Analysis</li>
+            <li>Abstract Algebra</li>
+          </ul>
         </div>
 
-        <div>
-          <div class="item-title">M.Math (Master of Mathematics)</div>
-          <div class="item-subtitle">Indian Statistical Institute, Bangalore &bull; 2023 – 2025</div>
-        </div>
-      </div>
+        <!-- Education Column -->
+        <div class="info-column">
+          <h3>Education</h3>
+          <div class="education-list">
+            
+            <div class="education-item">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <div>
+                <div class="degree">Ph.D. in Mathematics</div>
+                <div class="institution">The University of Texas at Dallas &bull; 2025 – Present</div>
+              </div>
+            </div>
 
-      <!-- INTERESTS SECTION -->
-      <div class="section-block">
-        <h2>Interests</h2>
-        <ul class="simple-list">
-          <li>Complex Geometry</li>
-          <li>Differential Geometry</li>
-          <li>Functional Analysis</li>
-          <li>Abstract Algebra</li>
-        </ul>
+            <div class="education-item">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <div>
+                <div class="degree">M.Math (Master of Mathematics)</div>
+                <div class="institution">Indian Statistical Institute, Bangalore &bull; 2023 – 2025</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -351,6 +347,7 @@ layout: null
     const toggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
 
+    // Check localStorage or device color preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -362,6 +359,7 @@ layout: null
       themeIcon.className = 'fa-solid fa-moon';
     }
 
+    // Toggle theme on button click
     toggleBtn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       
