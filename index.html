@@ -22,6 +22,7 @@ layout: null
       --text-muted: #777777;
       --accent-color: #2b6cb0;
       --accent-hover: #1a4971;
+      --border-color: #e2e8f0; /* Section line color for light mode */
       --shadow-color: rgba(0, 0, 0, 0.12);
       --toggle-bg: #f0f0f0;
     }
@@ -33,6 +34,7 @@ layout: null
       --text-muted: #999999;
       --accent-color: #63b3ed;
       --accent-hover: #90cdf4;
+      --border-color: #2d3748; /* Section line color for dark mode */
       --shadow-color: rgba(0, 0, 0, 0.6);
       --toggle-bg: #2d2d2d;
     }
@@ -145,18 +147,28 @@ layout: null
       color: var(--accent-hover);
     }
 
+    /* Horizontal Line Divider for Sidebar */
+    .sidebar-divider {
+      border: 0;
+      border-top: 1px solid var(--border-color);
+      margin: 25px 0 0 0;
+    }
+
     /* Right Main Content */
     .main-content {
       flex: 2;
       min-width: 300px;
     }
 
+    /* Section Headings with Bottom Border Line */
     .main-content h2 {
-      font-size: 32px;
-      font-weight: 400;
+      font-size: 28px;
+      font-weight: 500;
       color: var(--text-primary);
       margin-top: 0;
       margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
     }
 
     .main-content p {
@@ -187,11 +199,14 @@ layout: null
       min-width: 200px;
     }
 
+    /* Sub-section Headings with Bottom Border Line */
     .info-column h3 {
       font-size: 18px;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-color);
     }
 
     .info-column ul {
@@ -259,6 +274,7 @@ layout: null
         <a href="https://orcid.org/0009-0002-4540-3666" target="_blank" rel="noopener noreferrer" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
         <a href="https://www.linkedin.com/in/saptarshi-halder-24464827b" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
       </div>
+      <hr class="sidebar-divider">
     </div>
 
     <!-- RIGHT MAIN CONTENT -->
@@ -289,12 +305,10 @@ layout: null
         <div class="info-column">
           <h3>Interests</h3>
           <ul>
-            <li>Kähler Geometry</li>
-            <li>Geometric Flows</li>
-            <li>Manifold Learning</li>
-            <li>Dimension Reduction</li>
-           
-      
+            <li>Complex Geometry</li>
+            <li>Differential Geometry</li>
+            <li>Functional Analysis</li>
+            <li>Abstract Algebra</li>
           </ul>
         </div>
 
@@ -307,8 +321,7 @@ layout: null
               <i class="fa-solid fa-graduation-cap"></i>
               <div>
                 <div class="degree">Ph.D. in Mathematics</div>
-                <div class="institution">The University of Texas at Dallas</div>
-                <div class="institution">2025 – Present</div>
+                <div class="institution">The University of Texas at Dallas &bull; 2025 – Present</div>
               </div>
             </div>
 
@@ -316,8 +329,7 @@ layout: null
               <i class="fa-solid fa-graduation-cap"></i>
               <div>
                 <div class="degree">M.Math (Master of Mathematics)</div>
-                <div class="institution">Indian Statistical Institute, Bangalore</div>
-                <div class="institution">2023 – 2025</div>
+                <div class="institution">Indian Statistical Institute, Bangalore &bull; 2023 – 2025</div>
               </div>
             </div>
 
