@@ -1,0 +1,14 @@
+title: "Saptarshi Halder"
+author: "Saptarshi Halder"
+email: "your.email@institution.edu"
+description: "Academic homepage of Saptarshi Halder | Mathematics Research"
+url: "https://saptarshihalder01.github.io"
+baseurl: ""
+
+# Academic Links
+github_username: saptarshihalder01
+google_scholar_id: "YOUR_SCHOLAR_ID"
+orcid_id: "YOUR_ORCID_ID"
+
+# Theme setting (if using GitHub's built-in Jekyll theme)
+theme: jekyll-theme-minimal
