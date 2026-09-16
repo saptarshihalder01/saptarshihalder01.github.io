@@ -154,6 +154,70 @@ layout: null
       border-top: 1px solid var(--border-color);
       margin: 25px 0 0 0;
     }
+<style> /* Container styling */
+  .presentation-list {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 20px 0;
+  }
+  
+  /* Individual row alignment */
+  .presentation-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; /* Space between entries instead of lines */
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  
+  /* Date column styling */
+  .pres-date {
+    width: 85px;
+    color: #555;
+    flex-shrink: 0;
+  }
+  
+  /* Generic badge styling */
+  .pres-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 65px;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  /* Custom Badge Colors */
+  .badge-talk {
+    background-color: #e6f4ea;
+    color: #137333;
+  }
+  
+  .badge-poster {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+  }
+  
+  .badge-attendee {
+    background-color: #f1f3f4;
+    color: #5f6368;
+  }
+  
+  /* Description/Text column */
+  .pres-details {
+    color: #333;
+  }
+  .pres-details a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  .pres-details a:hover {
+    text-decoration: underline;
+  }
+</style>
 
     /* --------------------------------------------------
        RIGHT MAIN CONTENT
@@ -344,15 +408,26 @@ layout: null
 
        <h2>Publications & Preprints</h2>
       <div class="section-block">
-      <h2>Presentations</h2>
-        <ul class="presenations">
-      <li>
-    <a href="https://ucipde2025.github.io/2026-PDE-Summer-School-Website-Public-keep-public/index.html" target="_blank" rel="noopener noreferrer">Theory and Applications of Elliptic PDE</a>  <span style="color: var(--text-muted); font-size: 14px;"> — University of California, Irvine</span>
-      <span class="date-badge">August 17–21, 2026</span>
-    </li>
-      <li> <a href="https://www.limitisi.in/" target="_blank" rel="noopener noreferrer">LIMIT Camp</a>  <span style="color: var(--text-muted); font-size: 14px;"> — Indian Statistical Institute, Bangalore </span>
-      <span class="date-badge">June 3, 2026 </li>
-      </ul>
+   <div class="presentation-list">
+
+  <!-- Entry 1 -->
+  <div class="presentation-item">
+    <div class="pres-date">Aug 2026</div>
+    <div class="pres-badge badge-talk">Talk</div>
+    <div class="pres-details">
+      <a href="#">Theory and Applications of Elliptic PDE</a> — University of California, Irvine
+    </div>
+  </div>
+
+  <!-- Entry 2 -->
+  <div class="presentation-item">
+    <div class="pres-date">Jun 2026</div>
+    <div class="pres-badge badge-talk">Talk</div>
+    <div class="pres-details">
+      <a href="#">LIMIT Camp</a> — Indian Statistical Institute, Bangalore
+    </div>
+  </div>
+
 </div>
       <!-- WE MIGHT HAVE MET AT SECTION -->
 <div class="section-block">
